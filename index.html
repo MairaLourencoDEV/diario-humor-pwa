@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Diário de Humor — PWA</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="theme-color" content="#6C63FF" />
+  <meta name="description" content="Diário de Humor — registre como se sente, online e offline." />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Diário de Humor</h1>
+    <button id="installBtn" class="install-btn" aria-hidden="true">Instalar</button>
+  </header>
+
+  <main class="container">
+    <section class="entry-form">
+      <h2>Registrar Humor</h2>
+      <form id="entryForm">
+        <label for="entryDate">Data</label>
+        <input type="date" id="entryDate" required />
+
+        <fieldset class="mood-fieldset">
+          <legend>Humor</legend>
+          <div id="moodPicker" class="mood-picker">
+            <label>
+              <input type="radio" name="mood" value="feliz" required />
+              <img src="icons/pumpkinHappy-128.png" alt="Feliz" title="Feliz" />
+            </label>
+            <label>
+              <input type="radio" name="mood" value="triste" />
+              <img src="icons/ghostSad-128.png" alt="Triste" title="Triste" />
+            </label>
+            <label>
+              <input type="radio" name="mood" value="confuso" />
+              <img src="icons/pumpkinConfused-128.png" alt="Confuso" title="Confuso" />
+            </label>
+            <label>
+              <input type="radio" name="mood" value="enjoado" />
+              <img src="icons/pumpkinNauseous-128.png" alt="Enjoado" title="Enjoado" />
+            </label>
+            <label>
+              <input type="radio" name="mood" value="raiva" />
+              <img src="icons/ghostAngry-128.png" alt="Com raiva" title="Com raiva" />
+            </label>
+          </div>
+        </fieldset>
+
+        <label for="entryNote">Nota</label>
+        <textarea id="entryNote" rows="4" placeholder="Como foi seu dia?"></textarea>
+
+        <!-- Camera area -->
+        <div class="camera-area">
+          <video id="cameraPreview" autoplay playsinline></video>
+          <canvas id="cameraCanvas" style="display:none"></canvas>
+
+          <div class="camera-controls">
+            <button type="button" id="openCamera">Abrir Câmera</button>
+            <button type="button" id="takePhoto">Tirar Foto</button>
+            <button type="button" id="closeCamera" class="secondary">Fechar</button>
+          </div>
+
+          <div id="photoPreview" class="photo-preview"></div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="saveBtn">Salvar</button>
+          <button type="button" id="clearForm" class="secondary">Limpar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="entries-list">
+      <h2>Entradas</h2>
+      <div id="entriesContainer" aria-live="polite"></div>
+      <div id="emptyState" class="empty">Nenhuma entrada ainda — comece registrando seu humor!</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Funciona offline • Feito por você</small>
+  </footer>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
+
+
+

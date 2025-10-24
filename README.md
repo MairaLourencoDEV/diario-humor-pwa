@@ -14,7 +14,7 @@ Feito com HTML, CSS e JavaScript puro.
 - Instalação como aplicativo (PWA)  
 - Possibilidade de **editar** ou **excluir** entradas  
 - Câmera integrada (para tirar foto opcional)  
-- Citações motivacionais automáticas da API(https://api.quotable.io)
+- Citações motivacionais automáticas da API
 
 ---
 
